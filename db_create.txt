@@ -1,0 +1,49 @@
+CREATE DATABASE store_db;
+USE store_db;
+
+CREATE TABLE clients (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    first_name VARCHAR(100) NOT NULL,
+    last_name VARCHAR(100) NOT NULL,
+    phone VARCHAR(20) NOT NULL,
+    email VARCHAR(255) NOT NULL UNIQUE,
+    password_hash VARCHAR(255) NOT NULL,
+    role ENUM('USER','STAFF') NOT NULL DEFAULT 'USER',
+    created_at DATETIME NOT NULL
+);
+
+CREATE TABLE products (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(255) NOT NULL,
+    price DECIMAL(10,2) NOT NULL,
+    quantity DECIMAL(10,2) NOT NULL,
+    unit_type ENUM('KG', 'PCS') NOT NULL DEFAULT 'PCS'
+);
+
+INSERT INTO products (name, price, quantity, unit_type) VALUES
+('Cow Cheese', 4.80, 120.50, 'KG'),
+('White Cheese', 5.20, 85.00, 'KG'),
+('Yellow Cheese', 6.90, 60.25, 'KG'),
+('Butter', 8.40, 40.75, 'KG'),
+('Yogurt 400g', 2.30, 200, 'PCS'),
+('Milk 1L', 1.60, 150, 'PCS'),
+('Eggs (10 pcs)', 3.90, 50, 'PCS'),
+('Bread', 1.20, 80, 'PCS'),
+('Chocolate Bar', 1.50, 120, 'PCS');
+
+
+CREATE TABLE orders (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    client_id INT NOT NULL,
+    created_at DATETIME NOT NULL,
+    FOREIGN KEY (client_id) REFERENCES clients(id)
+);
+
+CREATE TABLE order_items (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    order_id INT NOT NULL,
+    product_id INT NOT NULL,
+    quantity DECIMAL(10,2) NOT NULL,
+    FOREIGN KEY (order_id) REFERENCES orders(id),
+    FOREIGN KEY (product_id) REFERENCES products(id)
+);

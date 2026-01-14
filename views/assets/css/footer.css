@@ -1,0 +1,43 @@
+html, body {
+    height: 100%;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+}
+
+.site-footer {
+    margin-top: auto;
+    width: 100%;
+    background-color: #e5e7eb;
+    border-top: 1px solid #d1d5db;
+    padding: 10px 0;
+    position: relative;
+}
+
+.footer-left {
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.footer-logo {
+    height: 34px;
+}
+
+.footer-center {
+    text-align: center;
+    font-size: 14px;
+    color: #374151;
+}
+
+.footer-shop {
+    font-weight: 600;
+}
+
+.footer-separator {
+    margin: 0 8px;
+    color: #9ca3af;
+}

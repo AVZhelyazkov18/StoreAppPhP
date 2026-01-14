@@ -1,0 +1,73 @@
+.register-dropdown {
+    position: absolute;
+    right: 120px;
+    top: 70px;
+    width: 320px;
+
+    background-color: #d8d8d8;
+    border: 1px solid #16a34a;
+    border-radius: 8px;
+    padding: 15px;
+
+    display: none;
+    z-index: 1000;
+}
+
+.register-dropdown.active {
+    display: block;
+}
+
+.register-form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.register-field input {
+    width: 93%;
+    padding: 10px;
+    border-radius: 6px;
+    border: 1px solid #ffffff;
+    background-color: #b8b8b8;
+    color: #e5e7eb;
+}
+
+.register-submit {
+    margin-top: 8px;
+    padding: 10px;
+    background-color: #16a34a;
+    border: none;
+    border-radius: 6px;
+    color: #ffffff;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.register-submit:hover {
+    background-color: #15803d;
+}
+
+.register-checkbox {
+    font-size: 13px;
+    color: #9ca3af;
+}
+
+.register-checkbox a {
+    color: #22c55e;
+    text-decoration: none;
+}
+
+.register-login {
+    text-align: center;
+    font-size: 13px;
+    color: #9ca3af;
+}
+
+.register-link {
+    background: none;
+    border: none;
+    color: #22c55e;
+    cursor: pointer;
+    margin-left: 4px;
+}
